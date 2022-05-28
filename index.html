@@ -8,15 +8,24 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@next"></script>
-    <div id="app"></div>
+    <div id="app">
+       
+    </div>
     <script>
       const vm=   Vue.createApp({
             data(){
                 return{
-                    text: "Hola vue"
+                  counter:0
                 };
             },
-            template:`<div  v-text="text"></div>`
+            methods:{
+                    increment(){
+                        this.counter++;
+                        console.log("click")
+                    }
+            },
+            template:`<form><button v-on:submit="submit">{{counter}}</button></form>`
+           
         }).mount("#app");
         console.log(vm)
     </script>
